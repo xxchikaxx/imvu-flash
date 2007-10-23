@@ -15,6 +15,7 @@
 	import flash.net.FileReferenceList;
 	import fl.controls.Button;
 	
+	[ExcludeClass]
 	public class MockClient extends MovieClip
 	{
 		

@@ -1,0 +1,437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="WidgetSpace,com.imvu.widget.WidgetSpace,INTERFACE_READY,WIDGET_LOADED,widgets,avatarName,url,ext,dlgLoad,init,fireRemoteEvent,sendEvent,receiveEvent,loadWidget,unloadWidget" name="keywords">
+<title>com.imvu.widget.WidgetSpace</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'WidgetSpace - API Documentation';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../index.html?com/imvu/widget/WidgetSpace.html&amp;com/imvu/widget/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;WidgetSpace</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class WidgetSpace"); titleBar_setSubNav(true,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">com.imvu.widget</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class WidgetSpace</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">WidgetSpace <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../images/inherit-arrow.gif"> flash.display.MovieClip</td>
+</tr>
+</table>
+<p></p>
+  Description of the WidgetSpace class
+  <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#avatarName">avatarName</a> : String = ""<div class="summaryTableDescription">
+   The avatar name of the user that has loaded the WidgetSpace.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#dlgLoad">dlgLoad</a> : MovieClip<div class="summaryTableDescription">
+   The interface dialog that allows users to confirm whether to load a widget offered 
+   for sharing by another user in chat.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ext">ext</a> : Object = null<div class="summaryTableDescription">
+   The ExternalInterface object used to make calls to the chat client
+   </div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#url">url</a> : String = ""<div class="summaryTableDescription">
+   The loaded url of the WidgetSpace SWF
+   </div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#widgets">widgets</a> : Object<div class="summaryTableDescription">
+   The list of currently loaded widgets, indexed by the SWF URL of each widget.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#WidgetSpace()">WidgetSpace</a>()</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#fireRemoteEvent()">fireRemoteEvent</a>(type:String, args:Object = null, targetWidget:String = null, recipients:Array = null):void</div>
+<div class="summaryTableDescription">
+   Broadcasts an event to other users.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#init()">init</a>():void</div>
+<div class="summaryTableDescription">
+   Initializes the WidgetSpace and prepares it for the loading of child widgets.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#loadWidget()">loadWidget</a>(path:String):void</div>
+<div class="summaryTableDescription">
+   Loads a widget into the WidgetSpace.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#receiveEvent()">receiveEvent</a>(event:<a href="../events/WidgetEvent.html">WidgetEvent</a>):void</div>
+<div class="summaryTableDescription">
+   Receives a WidgetEvent object and determines whether it was intended for the current
+   recipient, and delegates it to the appropriate widget.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sendEvent()">sendEvent</a>(eventData:<a href="../events/WidgetEventData.html">WidgetEventData</a>):void</div>
+<div class="summaryTableDescription">
+   Sends a JSON-encoded WidgetEventData object other users in the chat session
+   </div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unloadWidget()">unloadWidget</a>(path:String):void</div>
+<div class="summaryTableDescription">
+   Unloads a widget from the WidgetSpace.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:interfaceReady">interfaceReady</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the ExternalInterface is ready to begin receiving messages 
+ from the WidgetSpace.</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#INTERFACE_READY">INTERFACE_READY</a> : String = "interfaceReady"<div class="summaryTableDescription">[static]
+   The WidgetSpace.INTERFACE_READY constant defines the value of the 
+   <code>type</code> property of the event object 
+   for a <code>interfaceReady</code> event.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#WIDGET_LOADED">WIDGET_LOADED</a> : String = "widgetLoaded"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="avatarName"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">avatarName</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var avatarName:String = ""</code><p>
+   The avatar name of the user that has loaded the WidgetSpace.
+   </p></div>
+<a name="dlgLoad"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">dlgLoad</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var dlgLoad:MovieClip</code><p>
+   The interface dialog that allows users to confirm whether to load a widget offered 
+   for sharing by another user in chat.
+   </p></div>
+<a name="ext"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ext</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var ext:Object = null</code><p>
+   The ExternalInterface object used to make calls to the chat client
+   </p></div>
+<a name="url"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">url</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var url:String = ""</code><p>
+   The loaded url of the WidgetSpace SWF
+   </p></div>
+<a name="widgets"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">widgets</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var widgets:Object</code><p>
+   The list of currently loaded widgets, indexed by the SWF URL of each widget.
+   </p></div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="WidgetSpace()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">WidgetSpace</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function WidgetSpace()</code>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="fireRemoteEvent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fireRemoteEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function fireRemoteEvent(type:String, args:Object = null, targetWidget:String = null, recipients:Array = null):void</code><p>
+   Broadcasts an event to other users.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:String</code> &mdash; The event type to fire on remote clients
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">args</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; An object containg arguments associated with the event
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">targetWidget</span>:String</code> (default = <code>null</code>)<code></code> &mdash; The URL of the target SWF that should receive the event
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">recipients</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; An optional array of avatar names that should receive the event
+   </td>
+</tr>
+</table>
+</div>
+<a name="init()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">init</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function init():void</code><p>
+   Initializes the WidgetSpace and prepares it for the loading of child widgets.
+   </p></div>
+<a name="loadWidget()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loadWidget</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function loadWidget(path:String):void</code><p>
+   Loads a widget into the WidgetSpace.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">path</span>:String</code> &mdash; The URL of the widget SWF to be loaded
+   </td>
+</tr>
+</table>
+</div>
+<a name="receiveEvent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">receiveEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function receiveEvent(event:<a href="../events/WidgetEvent.html">WidgetEvent</a>):void</code><p>
+   Receives a WidgetEvent object and determines whether it was intended for the current
+   recipient, and delegates it to the appropriate widget. If no target widget was specified,
+   the event is dispatched at the WidgetSpace level.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">event</span>:<a href="../events/WidgetEvent.html">WidgetEvent</a></code> &mdash; The WidgetEvent object
+   </td>
+</tr>
+</table>
+</div>
+<a name="sendEvent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sendEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function sendEvent(eventData:<a href="../events/WidgetEventData.html">WidgetEventData</a>):void</code><p>
+   Sends a JSON-encoded WidgetEventData object other users in the chat session
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">eventData</span>:<a href="../events/WidgetEventData.html">WidgetEventData</a></code> &mdash; The WidgetEventData object to encode and send to other users
+   </td>
+</tr>
+</table>
+</div>
+<a name="unloadWidget()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unloadWidget</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function unloadWidget(path:String):void</code><p>
+   Unloads a widget from the WidgetSpace.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">path</span>:String</code> &mdash; The URL of the widget SWF to be unloaded
+   </td>
+</tr>
+</table>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:interfaceReady"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">interfaceReady</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>flash.events.Event</code></a>
+<br>
+<p></p><p>
+ Dispatched when the ExternalInterface is ready to begin receiving messages 
+ from the WidgetSpace.
+  </p></div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="INTERFACE_READY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">INTERFACE_READY</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const INTERFACE_READY:String = "interfaceReady"</code><p>
+   The WidgetSpace.INTERFACE_READY constant defines the value of the 
+   <code>type</code> property of the event object 
+   for a <code>interfaceReady</code> event.
+      the <code>data</code> property of the event contains data about
+   the fired event.
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../events/WidgetEventData.html" target="">WidgetEventData</a>
+</div>
+</div>
+<a name="WIDGET_LOADED"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">WIDGET_LOADED</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const WIDGET_LOADED:String = "widgetLoaded"</code>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->

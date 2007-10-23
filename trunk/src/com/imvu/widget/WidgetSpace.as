@@ -202,8 +202,8 @@
 				Debug.write("Event " + event.type + " dispatched to " + this, this.avatarName);
 			} else { // This was meant for a specific widget
 				var destination:ClientWidget = this.widgets[data.targetWidget];
-				Debug.write(destination.toString());
 				if (destination) {
+					Debug.write(destination.toString());
 					destination.receiveEvent(event);
 					Debug.write("Event " + event.type + " dispatched to " + destination, this.avatarName);
 				}
