@@ -13,6 +13,7 @@
 	import flash.display.Loader;
 	import flash.net.FileReference;
 	import flash.net.FileReferenceList;
+	import fl.controls.Button;
 	
 	public class MockClient extends MovieClip
 	{
@@ -22,6 +23,9 @@
 		public var avatarName:String = "";
 		public var connected:Boolean = false;
 		public var space:WidgetSpace = null;
+		
+		public var controls:MovieClip;
+		public var btnLoad:Button;
 		
 		public function MockClient() {
 			this.avatarName = "user" + int(100 * Math.random());
@@ -33,7 +37,7 @@
 				btnLoad.x = stage.stageWidth - 5 - btnLoad.width;
 			});
 			
-			var request:URLRequest = new URLRequest("WidgetSpace.swf");
+			var request:URLRequest = new URLRequest("../bin/WidgetSpace.swf");
 			
 			var loader:Loader = new Loader();
 			
@@ -120,7 +124,7 @@
 				var dataArray:Array = args.slice(2);
 				var data:String = dataArray.join(" ");
 				// Need to send this data to the function that's associated with the flashCommand callback on the widgetspace
-				this.space._receiveFlashCommand(avatarName, data);
+				this.space.ext.callbacks.flashCommand(avatarName, data);
 			}
 		}
 		
