@@ -7,6 +7,7 @@
 	import flash.net.LocalConnection;
 	import com.interactiveAlchemy.utils.Debug;
 	
+	[ExcludeClass]
 	public class MockServer extends MovieClip
 	{
 		
