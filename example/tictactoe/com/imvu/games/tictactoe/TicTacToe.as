@@ -1,11 +1,13 @@
 ﻿package com.imvu.games.tictactoe {
-	import com.imvu.widget.ClientWidget;
+	import com.imvu.widget.*;
 	import com.imvu.events.*;
 	import flash.text.TextField;
 	import flash.events.*;
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import com.interactiveAlchemy.utils.Debug;
+	import flash.net.URLRequest;
+	import flash.display.Loader;
 	
 	public class TicTacToe extends ClientWidget {
 		
@@ -27,6 +29,7 @@
 		public var marker6:Space;
 		public var marker7:Space;
 		public var marker8:Space;
+		public var gameboard:MovieClip;
 		
 		public function TicTacToe() {
 			super();
@@ -35,6 +38,7 @@
 		
 		public override function init():void {
 			super.init();
+			this.loadSkin();
 			this.markers = [marker0,marker1,marker2,marker3,marker4,marker5,marker6,marker7,marker8];
 			
 			this.addEventListener("joinWidget", this.opponentJoined);
@@ -49,6 +53,11 @@
 			
 			this.reset();
 			this.txtStatus.text = "Waiting for opponent...";
+		}
+		
+		public function loadSkin():void {
+			gameboard.background.load("background.png");
+			gameboard.grid.load("grid.png");
 		}
 		
 		public function playAgain(e:Event=null) {

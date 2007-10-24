@@ -8,6 +8,7 @@
 		
 		com.imvu.widget.ClientWidget;
 		com.imvu.widget.WidgetSpace;
+		com.imvu.widget.WidgetAsset;
 		com.imvu.events.WidgetEvent;
 		com.imvu.events.WidgetEventData;
 		com.imvu.test.MockExternalInterface;
