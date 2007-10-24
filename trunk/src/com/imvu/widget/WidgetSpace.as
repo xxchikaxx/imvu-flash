@@ -1,8 +1,10 @@
 ﻿package com.imvu.widget
 {
 	import com.adobe.serialization.json.*;
+	import com.imvu.widget.*;
 	import com.imvu.events.*;
 	import com.imvu.test.*;
+	
 	import com.interactiveAlchemy.utils.Debug;
 	
 	import flash.display.Loader;
@@ -29,6 +31,7 @@
 	 * Description of the WidgetSpace class
 	 */
 	public class WidgetSpace extends MovieClip {
+		com.imvu.widget.WidgetAsset;
 		
 		/**
 		 * The WidgetSpace.INTERFACE_READY constant defines the value of the 

@@ -4,11 +4,14 @@
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import com.interactiveAlchemy.utils.Debug;
+	import com.imvu.widget.WidgetAsset;
 	
 	public class Space extends MovieClip {
 		public var txt:TextField;
 		public var index:Number = 0;
 		public var clickHandler:Function;
+		public var oMarker:WidgetAsset;
+		public var xMarker:WidgetAsset;
 		
 		public function Space() {
 			this.buttonMode = true;
