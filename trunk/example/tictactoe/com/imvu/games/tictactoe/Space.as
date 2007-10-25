@@ -5,6 +5,7 @@
 	import flash.text.TextField;
 	import com.interactiveAlchemy.utils.Debug;
 	import com.imvu.widget.WidgetAsset;
+	import com.imvu.widget.ClientWidget;
 	
 	public class Space extends MovieClip {
 		public var txt:TextField;
@@ -12,11 +13,13 @@
 		public var clickHandler:Function;
 		public var oMarker:WidgetAsset;
 		public var xMarker:WidgetAsset;
+		public var widget:ClientWidget;
 		
 		public function Space() {
 			this.buttonMode = true;
 			this.useHandCursor = false;
 			this.clear();
+			this.widget = ClientWidget(this.parent);
 		}
 		
 		public function setX() {

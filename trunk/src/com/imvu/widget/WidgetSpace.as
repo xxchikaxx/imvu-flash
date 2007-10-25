@@ -245,6 +245,7 @@
 			var loadComplete:Function = function(e:Event):void {
 				ldr.content["space"] = me;
 				ldr.content["url"] = path;
+				ldr.content["path"] = WidgetSpace.getWidgetPath(path);
 				
 				var fullURL:String = ldr.content.loaderInfo.url;
 				Debug.write("Full widget URL: " + fullURL, this.avatarName);
@@ -282,5 +283,16 @@
 				delete this.widgets[path];
 			}
 		}
+		
+		public static function getWidgetPath(path:String):String {
+			var pathOnly:String = "";
+			if (path.indexOf("://") > 0) {
+				var urlSegments:Array = path.split("/");
+				urlSegments.pop();
+				pathOnly = urlSegments.join("/") + "/";
+			}
+			return pathOnly;
+		}
+		
 	}
 }

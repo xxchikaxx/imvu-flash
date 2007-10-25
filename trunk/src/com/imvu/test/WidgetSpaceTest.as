@@ -50,6 +50,7 @@
 				assertNotNull(_instance.widgets["circle.swf"]);
 				var testWidget:ClientWidget = _instance.widgets["circle.swf"];
 				assertEquals(testWidget, _instance.getChildByName(testWidget.name));
+				Debug.write("PATH: " + _instance.widgets["circle.swf"].path);
 				
 				_instance.unloadWidget("circle.swf");
 				assertNull(_instance.widgets["circle.swf"]);
@@ -58,6 +59,13 @@
 			
 			_instance.addEventListener(WidgetSpace.WIDGET_LOADED, addAsync(loadHandler));
 			_instance.loadWidget("circle.swf");
+			
+		}
+		
+		public function testParsePath():void {
+			var path:String = "http://virtual.imvu.products/80/test.swf";
+			var parsed:String = WidgetSpace.getWidgetPath(path);
+			assertEquals(parsed, "http://virtual.imvu.products/80/");
 		}
 		
 		public function testSendEvent():void {
