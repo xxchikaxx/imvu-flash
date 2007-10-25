@@ -56,8 +56,8 @@
 		}
 		
 		public function loadSkin():void {
-			gameboard.background.load("background.png");
-			gameboard.grid.load("grid.png");
+			gameboard.background.load(this.path + "background.png");
+			gameboard.grid.load(this.path + "grid.png");
 		}
 		
 		public function playAgain(e:Event=null) {

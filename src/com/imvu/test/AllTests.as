@@ -9,6 +9,7 @@ package com.imvu.test {
 			addTest(new WidgetSpaceTest("testLoadAndUnloadWidget"));
 			addTest(new WidgetSpaceTest("testSendEvent"));
 			addTest(new WidgetSpaceTest("testReceiveEvent"));
+			addTest(new WidgetSpaceTest("testParsePath"));
 			
 			addTest(new ClientWidgetTest("testSendEvent"));
 			addTest(new ClientWidgetTest("testReceiveEvent"));

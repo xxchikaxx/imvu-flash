@@ -13,6 +13,7 @@
 		
 		public var space:WidgetSpace = null;
 		public var url:String = "";
+		public var path:String = "";
 		public var config:Object = {};
 		public var widgetName:String = "Widget";
 		
