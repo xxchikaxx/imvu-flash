@@ -7,6 +7,9 @@
 	import com.imvu.widget.WidgetAsset;
 	import com.imvu.widget.ClientWidget;
 	
+	/**
+	 * Represents an X/O space on the Tic-Tac-Toe gameboard
+	 */
 	public class Space extends MovieClip {
 		public var txt:TextField;
 		public var index:Number = 0;
