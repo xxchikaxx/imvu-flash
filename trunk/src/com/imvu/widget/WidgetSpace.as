@@ -47,6 +47,8 @@
 		
 		public static const WIDGET_LOADED:String = "widgetLoaded";
 		
+		public static const WIDGET_UNLOADED:String = "widgetUnloaded";
+		
 		/**
 		 * The list of currently loaded widgets, indexed by the SWF URL of each widget.
 		 */
@@ -135,17 +137,17 @@
 		 */
 		private function setupInterface():void {
 			if (! ExternalInterface.available) {
-				this.ext = MockExternalInterface;
+				this.ext = new MockExternalInterface();
 			} else {
 				this.avatarName = ExternalInterface.call("getAvatarName"); // See if we're in the IMVU client
 				if (this.avatarName) {
 					this.ext = ExternalInterface;
 					Debug.write("Running in IMVU Client", this.avatarName);
 				} else {
-					this.ext = MockExternalInterface;
+					this.ext = new MockExternalInterface();
 				}
 			}
-			if (this.ext == MockExternalInterface) {
+			if (this.ext is MockExternalInterface) {
 				Debug.write("NOT Running in IMVU Client! Using MockExternalInterface", this.avatarName);
 			}
 			
@@ -266,7 +268,6 @@
 			
 			ldr.contentLoaderInfo.addEventListener(Event.COMPLETE, loadComplete);
 			ldr.load(url, context);
-			
 		}
 
 		/**
@@ -276,14 +277,20 @@
 		 */		
 		public function unloadWidget(path:String):void {
 			Debug.write("Attempting to unload widget: " + path, this.avatarName);
-			var widgetToUnload:MovieClip = this.widgets[path];
+			var widgetToUnload:ClientWidget = this.widgets[path];
 			if (widgetToUnload) {
 				Debug.write("Removing widget: " + widgetToUnload);
+				this.fireRemoteEvent(WIDGET_UNLOADED, null, path);
 				this.removeChild(widgetToUnload);
 				delete this.widgets[path];
 			}
 		}
 		
+		/**
+		 * Utility function to extract the path of a file from its full URL.
+		 * 
+		 * @param path The URL of the widget
+		 */
 		public static function getWidgetPath(path:String):String {
 			var pathOnly:String = "";
 			if (path.indexOf("://") > 0) {
