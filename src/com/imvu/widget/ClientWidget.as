@@ -34,6 +34,8 @@
 		}
 
 		public function fireRemoteEvent(type:String, args:Object=null, recipients:Array=null, global:Boolean=false):void {			
+			Debug.write("Firing event: " + type);
+			
 			var eventData:WidgetEventData = new WidgetEventData();
 			eventData.type = type;
 			eventData.sourceWidget = this.url;

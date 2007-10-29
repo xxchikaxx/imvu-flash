@@ -8,8 +8,7 @@
 	import com.interactiveAlchemy.utils.Debug;
 	
 	[ExcludeClass]
-	public class MockServer extends MovieClip
-	{
+	public class MockServer extends MovieClip {
 		
 		public var bridge:LocalConnection = new LocalConnection();
 		public var users:Object = {};

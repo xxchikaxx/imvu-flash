@@ -26,7 +26,7 @@
 			// There is no stage, so we need to fire the event manually in order to cause init() to fire
 			_instance.dispatchEvent(new Event(Event.ADDED_TO_STAGE));
 			
-			MockExternalInterface.scope =  {
+			_instance.ext.scope =  {
 				sendMessage : function(message:String):void {
 					Debug.write("Sent message: " + message);
 				}
@@ -38,9 +38,9 @@
 		}
 		
 		public function testExternalInterfaceSetup():void {
-			assertEquals(_instance.ext, MockExternalInterface);
-			assertEquals(MockExternalInterface.callbacks.loadWidget, _instance.loadWidget);
-			assertEquals(MockExternalInterface.callbacks.unloadWidget, _instance.unloadWidget);
+			assertTrue(_instance.ext is MockExternalInterface);
+			assertEquals(_instance.ext.callbacks.loadWidget, _instance.loadWidget);
+			assertEquals(_instance.ext.callbacks.unloadWidget, _instance.unloadWidget);
 		
 			assertEquals(Debug.messages[0], "Test Interface Ready");
 		}
@@ -50,7 +50,6 @@
 				assertNotNull(_instance.widgets["circle.swf"]);
 				var testWidget:ClientWidget = _instance.widgets["circle.swf"];
 				assertEquals(testWidget, _instance.getChildByName(testWidget.name));
-				Debug.write("PATH: " + _instance.widgets["circle.swf"].path);
 				
 				_instance.unloadWidget("circle.swf");
 				assertNull(_instance.widgets["circle.swf"]);
@@ -85,15 +84,15 @@
 			
 			// First, dispatch events to WidgetSpace itself:
 			// Test an event that was meant for everyone
-			MockExternalInterface.callbacks.flashCommand("AnotherUser", JSON.encode(event));
+			_instance.ext.callbacks.flashCommand("AnotherUser", JSON.encode(event));
 			
 			// Test an event that was meant for someone other than me
 			event.recipients = ["NotMeantForYou"];
-			MockExternalInterface.callbacks.flashCommand("AnotherUser", JSON.encode(event));
+			_instance.ext.callbacks.flashCommand("AnotherUser", JSON.encode(event));
 			
 			// Test an event that was meant for me only
 			event.recipients = [_instance.avatarName];
-			MockExternalInterface.callbacks.flashCommand("AnotherUser", JSON.encode(event));
+			_instance.ext.callbacks.flashCommand("AnotherUser", JSON.encode(event));
 			
 			assertEquals(eventsFired, 2);	
 			
@@ -106,7 +105,7 @@
 				widget.addEventListener(event.type, function(we:WidgetEvent):void { widgetGotEvent=true; });
 				
 				event.targetWidget = "circle.swf";
-				MockExternalInterface.callbacks.flashCommand("AnotherUser", JSON.encode(event));
+				_instance.ext.callbacks.flashCommand("AnotherUser", JSON.encode(event));
 				
 				assertTrue(widgetGotEvent);
 			};			

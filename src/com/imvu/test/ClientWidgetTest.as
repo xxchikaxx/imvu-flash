@@ -28,7 +28,7 @@ package com.imvu.test {
 			// There is no stage, so we need to fire the event manually in order to cause init() to fire
 			_widgetSpace.dispatchEvent(new Event(Event.ADDED_TO_STAGE));
 			
-			MockExternalInterface.scope =  {
+			_widgetSpace.ext.scope =  {
 				sendMessage : function(message:String):void {
 					Debug.write("Sent message: " + message);
 				}
