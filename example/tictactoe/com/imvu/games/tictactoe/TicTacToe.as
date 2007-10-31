@@ -31,13 +31,8 @@
 		public var marker8:Space;
 		public var gameboard:MovieClip;
 		
-		public function TicTacToe() {
-			super();
+		public function initWidget():void {
 			this.widgetName = "Tic-Tac-Toe";
-		}
-		
-		public override function init():void {
-			super.init();
 			this.loadSkin();
 			this.markers = [marker0,marker1,marker2,marker3,marker4,marker5,marker6,marker7,marker8];
 			
