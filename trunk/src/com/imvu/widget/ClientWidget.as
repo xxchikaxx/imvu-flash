@@ -25,10 +25,14 @@
 			});
 		}
 		
-		public function init():void {
+		public final function init():void {
 			if (this.loaderInfo) {
 				//this.url = this.loaderInfo.url.split('?', 1)[0];
 				this.config = this.loaderInfo.parameters;
+			}
+			if (this["initWidget"] && this["initWidget"] is Function) {
+				var fn:Function = this["initWidget"];
+				fn.call(this);
 			}
 			this.fireRemoteEvent("joinWidget");
 		}
