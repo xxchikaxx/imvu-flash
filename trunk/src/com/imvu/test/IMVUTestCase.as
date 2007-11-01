@@ -1,3 +1,6 @@
+/**
+ * @private
+ */
 package com.imvu.test {
 	import asunit.framework.TestCase;
 	

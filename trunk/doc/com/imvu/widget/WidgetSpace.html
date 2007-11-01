@@ -4,13 +4,13 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
-<meta content="WidgetSpace,com.imvu.widget.WidgetSpace,INTERFACE_READY,WIDGET_LOADED,widgets,avatarName,url,ext,dlgLoad,init,fireRemoteEvent,sendEvent,receiveEvent,loadWidget,unloadWidget" name="keywords">
+<meta content="WidgetSpace,com.imvu.widget.WidgetSpace,INTERFACE_READY,WIDGET_LOADED,WIDGET_UNLOADED,widgets,avatarName,url,ext,dlgLoad,init,fireRemoteEvent,sendEvent,receiveEvent,loadWidget,unloadWidget,getWidgetPath" name="keywords">
 <title>com.imvu.widget.WidgetSpace</title>
 </head>
 <body>
 <script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'WidgetSpace - API Documentation';
+				asdocTitle = 'WidgetSpace - IMVU Flash Widget API Documentation';
 				var baseRef = '../../../';
 				window.onload = configPage;
 			--></script>
@@ -42,7 +42,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
-  Description of the WidgetSpace class
+  The WidgetSpace in an empty SWF with no visible interface that is responsible for
+  loading widgets into the IMVU 3D client and dispatching events to and from the 
+  appropriate widgets across the IMVU chat pipeline.
   <p></p>
 <br>
 <hr>
@@ -104,6 +106,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#fireRemoteEvent()">fireRemoteEvent</a>(type:String, args:Object = null, targetWidget:String = null, recipients:Array = null):void</div>
 <div class="summaryTableDescription">
    Broadcasts an event to other users.</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getWidgetPath()">getWidgetPath</a>(path:String):String</div>
+<div class="summaryTableDescription">[static]
+   Utility function to extract the path of a file from its full URL.</div>
 </td><td class="summaryTableOwnerCol">WidgetSpace</td>
 </tr>
 <tr class="">
@@ -184,6 +194,10 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#WIDGET_LOADED">WIDGET_LOADED</a> : String = "widgetLoaded"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">WidgetSpace</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#WIDGET_UNLOADED">WIDGET_UNLOADED</a> : String = "widgetUnloaded"<div class="summaryTableDescription">[static]</div>
 </td><td class="summaryTableOwnerCol">WidgetSpace</td>
 </tr>
 </table>
@@ -294,6 +308,31 @@ showHideInherited();
 <tr>
 <td width="20px"></td><td><code><span class="label">recipients</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; An optional array of avatar names that should receive the event
    </td>
+</tr>
+</table>
+</div>
+<a name="getWidgetPath()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getWidgetPath</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getWidgetPath(path:String):String</code><p>
+   Utility function to extract the path of a file from its full URL.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">path</span>:String</code> &mdash; The URL of the widget
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
 </tr>
 </table>
 </div>
@@ -423,6 +462,15 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public static const WIDGET_LOADED:String = "widgetLoaded"</code>
+</div>
+<a name="WIDGET_UNLOADED"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">WIDGET_UNLOADED</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const WIDGET_UNLOADED:String = "widgetUnloaded"</code>
 </div>
 <br>
 <br>

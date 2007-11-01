@@ -9,7 +9,7 @@
 <body>
 <script type="text/javascript" language="javascript" src="asdoc.js"></script><script type="text/javascript" language="javascript" src="cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'All Classes - API Documentation';
+				asdocTitle = 'All Classes - IMVU Flash Widget API Documentation';
 				var baseRef = '';
 				window.onload = configPage;
 			--></script>
@@ -39,24 +39,36 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Al
 <tr class="prow1">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="com/imvu/widget/ClientWidget.html">ClientWidget</a>
 <br>
-</td><td class="summaryTableCol"><a onclick="javascript:loadClassListFrame('com/imvu/widget/class-list.html');" href="com/imvu/widget/package-detail.html">com.imvu.widget</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</td><td class="summaryTableCol"><a onclick="javascript:loadClassListFrame('com/imvu/widget/class-list.html');" href="com/imvu/widget/package-detail.html">com.imvu.widget</a></td><td class="summaryTableLastCol">
+  ClientWidget is the base class used for writing widgets that run in the IMVU 3D client.</td>
 </tr>
 <tr class="prow0">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="com/imvu/events/WidgetEvent.html">WidgetEvent</a>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="com/imvu/widget/WidgetAsset.html">WidgetAsset</a>
 <br>
-</td><td class="summaryTableCol"><a onclick="javascript:loadClassListFrame('com/imvu/events/class-list.html');" href="com/imvu/events/package-detail.html">com.imvu.events</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</td><td class="summaryTableCol"><a onclick="javascript:loadClassListFrame('com/imvu/widget/class-list.html');" href="com/imvu/widget/package-detail.html">com.imvu.widget</a></td><td class="summaryTableLastCol">
+  Represents a skinnable asset that can be used in a widget.</td>
 </tr>
 <tr class="prow1">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="com/imvu/events/WidgetEventData.html">WidgetEventData</a>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="com/imvu/events/WidgetEvent.html">WidgetEvent</a>
 <br>
-</td><td class="summaryTableCol"><a onclick="javascript:loadClassListFrame('com/imvu/events/class-list.html');" href="com/imvu/events/package-detail.html">com.imvu.events</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</td><td class="summaryTableCol"><a onclick="javascript:loadClassListFrame('com/imvu/events/class-list.html');" href="com/imvu/events/package-detail.html">com.imvu.events</a></td><td class="summaryTableLastCol">
+  WidgetEvent extends Event, and adds an extra WidgetEventData argument to 
+  allow events fired by widgets to pass data to widget event handlers.</td>
 </tr>
 <tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="com/imvu/events/WidgetEventData.html">WidgetEventData</a>
+<br>
+</td><td class="summaryTableCol"><a onclick="javascript:loadClassListFrame('com/imvu/events/class-list.html');" href="com/imvu/events/package-detail.html">com.imvu.events</a></td><td class="summaryTableLastCol">
+  A data object that is contained within WidgetEvent instances, allowing
+  widgets to pass both specific and arbitrary data to widget event handlers.</td>
+</tr>
+<tr class="prow1">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="com/imvu/widget/WidgetSpace.html">WidgetSpace</a>
 <br>
 </td><td class="summaryTableCol"><a onclick="javascript:loadClassListFrame('com/imvu/widget/class-list.html');" href="com/imvu/widget/package-detail.html">com.imvu.widget</a></td><td class="summaryTableLastCol">
-  Description of the WidgetSpace class
-  </td>
+  The WidgetSpace in an empty SWF with no visible interface that is responsible for
+  loading widgets into the IMVU 3D client and dispatching events to and from the 
+  appropriate widgets across the IMVU chat pipeline.</td>
 </tr>
 </table>
 <p></p>
