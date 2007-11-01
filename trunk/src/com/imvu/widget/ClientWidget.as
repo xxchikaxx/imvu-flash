@@ -79,9 +79,7 @@ package com.imvu.widget {
 		 */
 		public final function init():void {
 			if (this.loaderInfo) {
-				if (this.loaderInfo && this.loaderInfo.url) {
-					this.url = this.loaderInfo.url.split('?', 1)[0];
-				}
+				//this.url = this.loaderInfo.url.split('?', 1)[0];
 				this.config = this.loaderInfo.parameters;
 			}
 			if (this["initWidget"] && this["initWidget"] is Function) {
