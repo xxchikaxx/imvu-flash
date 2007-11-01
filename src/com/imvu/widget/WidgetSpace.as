@@ -266,7 +266,7 @@ package com.imvu.widget
 			var me:WidgetSpace = this;
 			var loadComplete:Function = function(e:Event):void {
 				ldr.content["space"] = me;
-				ldr.content["url"] = path;
+				ldr.content["url"] = path.split('?', 1)[0];
 				ldr.content["path"] = WidgetSpace.getWidgetPath(path);
 				
 				var fullURL:String = ldr.content.loaderInfo.url;
