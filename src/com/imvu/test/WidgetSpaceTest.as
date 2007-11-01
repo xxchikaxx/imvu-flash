@@ -16,6 +16,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with the IMVU Flash Widget API. If not, see <http://www.gnu.org/licenses/>.
 */
+/**
+ * @private
+ */
 package com.imvu.test {
 	import asunit.framework.TestCase;
 	import com.imvu.widget.ClientWidget;

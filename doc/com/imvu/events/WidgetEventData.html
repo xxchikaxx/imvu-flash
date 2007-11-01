@@ -10,7 +10,7 @@
 <body>
 <script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'WidgetEventData - API Documentation';
+				asdocTitle = 'WidgetEventData - IMVU Flash Widget API Documentation';
 				var baseRef = '../../../';
 				window.onload = configPage;
 			--></script>
@@ -39,7 +39,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
-<p></p>
+  A data object that is contained within WidgetEvent instances, allowing
+  widgets to pass both specific and arbitrary data to widget event handlers.
+  <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../events/WidgetEvent.html" target="">WidgetEvent</a>
+</div>
 <br>
 <hr>
 </div>
@@ -51,31 +59,44 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#args">args</a> : Object<div class="summaryTableDescription"></div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#args">args</a> : Object<div class="summaryTableDescription">
+   An arbitrary data object containing argument data to be passed to the
+   widget event handler.</div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fromUser">fromUser</a> : String<div class="summaryTableDescription"></div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fromUser">fromUser</a> : String<div class="summaryTableDescription">
+   The avatar name of the user whose widget fired the event
+   </div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#recipients">recipients</a> : Array<div class="summaryTableDescription"></div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#recipients">recipients</a> : Array<div class="summaryTableDescription">
+   An array of avatar names that this event is intended for.</div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sourceWidget">sourceWidget</a> : String<div class="summaryTableDescription"></div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sourceWidget">sourceWidget</a> : String<div class="summaryTableDescription">
+   The URL of the widget that fired the event
+   </div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sourceWidgetName">sourceWidgetName</a> : String<div class="summaryTableDescription"></div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sourceWidgetName">sourceWidgetName</a> : String<div class="summaryTableDescription">
+   The name of the widget that fired the event (see ClientWidget.widgetName)
+   </div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#targetWidget">targetWidget</a> : String<div class="summaryTableDescription"></div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#targetWidget">targetWidget</a> : String<div class="summaryTableDescription">
+   The remote widget that this event is intended for
+   </div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 <tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#type">type</a> : String<div class="summaryTableDescription"></div>
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#type">type</a> : String<div class="summaryTableDescription">
+   The event type
+   </div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 </table>
@@ -98,14 +119,18 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#addRecipient()">addRecipient</a>(avatarName:String):void</div>
-<div class="summaryTableDescription"></div>
+<div class="summaryTableDescription">
+   Adds a recipient to the recipients list that determines who will actually
+   receive this event.</div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#loadFromObject()">loadFromObject</a>(obj:Object):void</div>
-<div class="summaryTableDescription"></div>
+<div class="summaryTableDescription">
+   Allows the public fields of a WidgetEventData instance to be set from the
+   fields of an arbitrary object (i.e., one that is decoded from JSON).</div>
 </td><td class="summaryTableOwnerCol">WidgetEventData</td>
 </tr>
 </table>
@@ -124,8 +149,10 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var args:Object</code>
-</div>
+<code>public var args:Object</code><p>
+   An arbitrary data object containing argument data to be passed to the
+   widget event handler.
+   </p></div>
 <a name="fromUser"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -133,8 +160,9 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var fromUser:String</code>
-</div>
+<code>public var fromUser:String</code><p>
+   The avatar name of the user whose widget fired the event
+   </p></div>
 <a name="recipients"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -142,8 +170,11 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var recipients:Array</code>
-</div>
+<code>public var recipients:Array</code><p>
+   An array of avatar names that this event is intended for. If this argument
+   is null, the event will be delivered to all other users who are currently 
+   running the target widget.
+   </p></div>
 <a name="sourceWidget"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -151,8 +182,9 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var sourceWidget:String</code>
-</div>
+<code>public var sourceWidget:String</code><p>
+   The URL of the widget that fired the event
+   </p></div>
 <a name="sourceWidgetName"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -160,7 +192,12 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var sourceWidgetName:String</code>
+<code>public var sourceWidgetName:String</code><p>
+   The name of the widget that fired the event (see ClientWidget.widgetName)
+   </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">com.imvu.widget.ClientWidget.widgetName</div>
 </div>
 <a name="targetWidget"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -169,8 +206,9 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var targetWidget:String</code>
-</div>
+<code>public var targetWidget:String</code><p>
+   The remote widget that this event is intended for
+   </p></div>
 <a name="type"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -178,8 +216,9 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var type:String</code>
-</div>
+<code>public var type:String</code><p>
+   The event type
+   </p></div>
 <a name="constructorDetail"></a>
 <div class="detailSectionHeader">Constructor detail</div>
 <a name="WidgetEventData()"></a>
@@ -205,10 +244,14 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function addRecipient(avatarName:String):void</code><span class="label">Parameters</span>
+<code>public function addRecipient(avatarName:String):void</code><p>
+   Adds a recipient to the recipients list that determines who will actually
+   receive this event.
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">avatarName</span>:String</code></td>
+<td width="20px"></td><td><code><span class="label">avatarName</span>:String</code> &mdash; The name of the recipient to add to the recipients list
+   </td>
 </tr>
 </table>
 </div>
@@ -219,10 +262,14 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function loadFromObject(obj:Object):void</code><span class="label">Parameters</span>
+<code>public function loadFromObject(obj:Object):void</code><p>
+   Allows the public fields of a WidgetEventData instance to be set from the
+   fields of an arbitrary object (i.e., one that is decoded from JSON).
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">obj</span>:Object</code></td>
+<td width="20px"></td><td><code><span class="label">obj</span>:Object</code> &mdash; The object from which to load the WidgetEventData fields
+   </td>
 </tr>
 </table>
 </div>
