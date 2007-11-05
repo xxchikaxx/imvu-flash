@@ -43,7 +43,8 @@ Next, let's get the lay of the land and take an inventory of what's included in 
 
 In your blank CircleWidget.as file, copy and paste the following code:
 
-`package {
+{{{
+package {
     import com.imvu.widget.*;
     import com.imvu.events.*;
     import flash.events.*;
@@ -55,7 +56,8 @@ In your blank CircleWidget.as file, copy and paste the following code:
 		}
   
 	}
-}`
+}
+}}}
 
 This is the base document class for your first widget. Whenever you want to build an IMVU widget, you'll want to make sure that it extends IMVU's ClientWidget class, which will give you access to special capabilities in the IMVU client, including multi-user communication.
 
@@ -67,7 +69,8 @@ To associate this code with your widget, go back to your "circle.fla" file, clic
 
 Then, after your "initWidget" function, paste this new function:
 
-`private function toggleColor(e:Event) {
+{{{
+private function toggleColor(e:Event) {
     if (! active) {
 		active = true;
         var colorOn:Color = new Color();
@@ -80,7 +83,8 @@ Then, after your "initWidget" function, paste this new function:
 		this.circleButton.transform.colorTransform = colorOff;
 	}
 }
-`
+}}}
+
 Now you have some code that will change the color of the circle, but it won't do anything until you wire it up to change color when you click on it. In order to do that, we need to attach an event listener to the button. In your "initWidget" function, add this line:
 
 `this.circleButton.addEventListener(MouseEvent.CLICK, toggleColor);`
@@ -107,9 +111,11 @@ This line tells your your widget to listen for an event called "circleClicked" t
 
 Since we only want to broadcast the event when you physically click on the circle, we'll add the following lines of code to the beginning of the "toggleColor" function:
 
-`if (e.type == MouseEvent.CLICK) {
+{{{
+if (e.type == MouseEvent.CLICK) {
 	this.fireRemoteEvent("circleClicked");
-}`
+}
+}}}
 
 This code simply checks to make sure that the "toggleColor" function was fired as a result of a click (as opposed to a remote event being fired by another user), and fires the remote event (broadcasting the change) if you click on the circle. If you try taking out the "if" statement, you'll see that when a click happens, the message would simply be bounced back and forth, resulting in an infinite loop.
 
