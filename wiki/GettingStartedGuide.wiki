@@ -65,13 +65,13 @@ This is the base document class for your first widget. Whenever you want to buil
 
 To associate this code with your widget, go back to your "circle.fla" file, click on any empty part of the stage, and in the Properties panel in the "Document class" box, type "!CircleWidget". You can verify that everything works by clicking the pencil next to the text box you just typed in -- that will take you to your !CircleWidget.as file so that you can continue building your widget.
 
-11. Now is where the fun really begins. We're going to make your Circle Widget actually do something -- we're going to make it turn red when you click it. First, we will add a variable to our !CircleWidget class to keep track of whether the widget is in the "clicked" state or not. Before your "initWidget" function, add this line:
+11. Now is where the fun really begins. We're going to make your Circle Widget actually do something -- we're going to make it turn red when you click it. First, we will add a variable to our !CircleWidget class to keep track of whether the widget is in the "clicked" state or not. Before your `initWidget` function, add this line:
 
 {{{
 public var active:Boolean = false;
 }}}
 
-Then, after your "initWidget" function, paste this new function:
+Then, after your `initWidget` function, paste this new function:
 
 {{{
 private function toggleColor(e:Event) {
@@ -90,13 +90,13 @@ private function toggleColor(e:Event) {
 }}}
 
 
-Now you have some code that will change the color of the circle, but it won't do anything until you wire it up to change color when you click on it. In order to do that, we need to attach an event listener to the button. In your "initWidget" function, add this line:
+Now you have some code that will change the color of the circle, but it won't do anything until you wire it up to change color when you click on it. In order to do that, we need to attach an event listener to the button. In your `initWidget` function, add this line:
 
 {{{
 this.circleButton.addEventListener(MouseEvent.CLICK, toggleColor);
 }}}
 
-Anything you put in the "initWidget" function will get executed when your widget is first loaded and intialized. In this case, we're adding an event listener so that when the user loads the widget, the circle button will be clickable immediately.
+Anything you put in the `initWidget` function will get executed when your widget is first loaded and intialized. In this case, we're adding an event listener so that when the user loads the widget, the circle button will be clickable immediately.
 
 Adding this event listener will tell !ActionScript to call the "toggleColor" function whenever the circle is clicked, changing the circle from blue to red and back again.
 
@@ -110,7 +110,7 @@ _Note: The files you are testing in the simulator must be in the "tools" folder 
 
 15. Let's revisit your !CircleWidget code and make some changes to create some basic multi-user interactivity. We want to make it so that when the circle is clicked by one user, it also changes for the other user. This requires us to add two things to the code: a) Make it so that when you click your circle, the other user's circle changes too, and b) Make it so that your circle is listening for the other user to click, and changes as well. Let's tackle the second item first.
 
-Add the following line to your "initWidget" function:
+Add the following line to your `initWidget` function:
 
 {{{
 this.addEventListener("circleClicked", toggleColor);
