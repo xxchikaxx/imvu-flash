@@ -53,18 +53,25 @@ package com.imvu.widget {
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, completeHandler);
 			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
 			
-			defaultAsset = getChildAt(0);
-			defaultAsset.visible = false;
+			if (numChildren > 0) {
+				defaultAsset = getChildAt(0);
+				defaultAsset.visible = false;
+			}
+			
 			addChild(loader);
 			loader.load(new URLRequest(url));
 		}
 		
 		private function completeHandler(event:Event):void {
-			removeChild(defaultAsset);
+			if (defaultAsset) {
+				removeChild(defaultAsset);
+			}
 		}
 		
 		private function ioErrorHandler(event:IOErrorEvent):void {
-			defaultAsset.visible = true;
+			if (defaultAsset) {
+				defaultAsset.visible = true;
+			}
 		}
 
 	}
