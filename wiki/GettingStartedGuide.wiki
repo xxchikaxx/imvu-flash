@@ -1,3 +1,4 @@
+#labels Featured
 =IMVU Flash Widget API - Getting Started Guide=
 
 The IMVU Flash Widget API allows you to create Adobe Flash widgets that can be accessed by users of the IMVU 3D Instant Messenger chat client. These widgets are overlaid on top of IMVU's 3D window, and can be used for any number of purposes, including interactive games that can be played by two or more players in a 3D chat session.
@@ -115,7 +116,7 @@ Add the following line to your "initWidget" function:
 this.addEventListener("circleClicked", toggleColor);
 }}}
 
-This line tells your your widget to listen for an event called "circleClicked" to be fired, and to execute the "toggleColor" function in response. The IMVU Flash API makes use of the !ActionScript 3 built-in event handling model. Adobe offers [http://www.adobe.com/devnet/ActionScript/articles/event_handling_as3.html a helpful introduction to !ActionScript 3 event handling] at their developer site. With this line of code in place, your local circle widget will respond to remote instances of the same widget firing the "circleClicked" event. The next step involves setting up your widget to broadcast the event indicating that the circle has been clicked.
+This line tells your your widget to listen for an event called "circleClicked" to be fired, and to execute the "toggleColor" function in response. The IMVU Flash API makes use of the !ActionScript 3 built-in event handling model. Adobe offers [http://www.adobe.com/devnet/ActionScript/articles/event_handling_as3.html a helpful introduction to ActionScript 3 event handling] at their developer site. With this line of code in place, your local circle widget will respond to remote instances of the same widget firing the "circleClicked" event. The next step involves setting up your widget to broadcast the event indicating that the circle has been clicked.
 
 Since we only want to broadcast the event when you physically click on the circle, we'll add the following lines of code to the beginning of the "toggleColor" function:
 
