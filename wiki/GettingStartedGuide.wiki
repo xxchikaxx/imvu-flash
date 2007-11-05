@@ -4,7 +4,7 @@ The IMVU Flash Widget API allows you to create Adobe Flash widgets that can be a
 
 Using IMVU's unique virtual marketplace, which receives thousands of shoppers every hour, developers can earn money selling their widgets to other IMVU users. Developers can also allow others to create derived widget skins to alter the default look and feel, and earn a profit from derived sales as well.
 
-This tutorial assumes basic knowledge of !ActionScript 3, Adobe Flash CS3, and basic familiarity with IMVU's product submission tool, the IMVU Previewer. For more information about IMVU's developer program, you can visit [http://www.imvu.com/catalog/devtools/ the IMVU Developer Center].
+This tutorial assumes basic knowledge of !ActionScript 3, Adobe Flash CS3, and basic   familiarity with IMVU's product submission tool, the IMVU Previewer. For more information about IMVU's developer program, you can visit [http://www.imvu.com/catalog/devtools/ the IMVU Developer Center].
 
 You can find the completed tutorial files in the "cicle" directory under the "example" folder of the install.
 
@@ -31,7 +31,7 @@ Next, let's get the lay of the land and take an inventory of what's included in 
 
   5. Next, we're going to do a little bit of drawing. In the toolbox, select the "Oval Primitive" tool, and draw a circle on the stage, and make it whatever color you'd like. Mine is going to be dark blue.
 
-  6. Convert the circle you just drew to a Symbol by right-clicking on it and choosing "Convert to Symbol". For the name, type "Circle", and choose "Button" as the type. Under the "Linkage" section, check "Export for !ActionScript". The class name will be pre-filled as "Circle", which is great, because that's what we're going to call it. The base class is also pre-set to "flash.display.SimpleButton", which is fine for now. Click "OK".
+  6. Convert the circle you just drew to a Symbol by right-clicking on it and choosing "Convert to Symbol". For the name, type "Circle", and choose "Button" as the type. Under the "Linkage" section, check "Export for !ActionScript". The class name will be pre-filled as "Circle", which is great, because that's what we're going to call it. The base class is also pre-set to "flash.display.!SimpleButton", which is fine for now. Click "OK".
 
   7. Click your circle on the stage, and in the box that says "<Instance Name>", type "circleButton". This will allow you to refer to the circle in your code when you want to make something happen.
 
