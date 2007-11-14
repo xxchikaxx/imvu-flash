@@ -31,12 +31,10 @@ package com.imvu.test {
 			addTest(new WidgetSpaceTest("testSendEvent"));
 			addTest(new WidgetSpaceTest("testReceiveEvent"));
 			addTest(new WidgetSpaceTest("testParsePath"));
+			addTest(new WidgetSpaceTest("testFocusAndBlur"));
 			
 			addTest(new ClientWidgetTest("testSendEvent"));
 			addTest(new ClientWidgetTest("testReceiveEvent"));
-			
-			addTest(new MultiUserTest("testMessages"));
-			
 		}
 	}
 }

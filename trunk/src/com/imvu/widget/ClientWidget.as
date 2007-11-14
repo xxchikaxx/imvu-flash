@@ -35,7 +35,7 @@ package com.imvu.widget {
 	 * IMVU chat pipeline.
 	 * @see com.imvu.widget.WidgetSpace WidgetSpace
 	 */
-	public class ClientWidget extends MovieClip {
+	dynamic public class ClientWidget extends MovieClip {
 		
 		public static const JOIN_WIDGET:String = "joinWidget";
 		
@@ -130,6 +130,49 @@ package com.imvu.widget {
 		public function receiveEvent(event:WidgetEvent):void {
 			Debug.write("Widget received event: " + event.type, this.space.avatarName);
 			this.dispatchEvent(event);
+		}
+		
+		/**
+		 * Focuses the current widget in the WidgetSpace, at the same time blurring all other widgets.
+		 * This function has no implementation by default. The actual function is assigned by WidgetSpace.
+		 */
+		public var focus:Function;
+		
+		/**
+		 * Blurs the current widget in the WidgetSpace.
+		 * This function has no implementation by default. The actual function is assigned by WidgetSpace.
+		 */		
+		public var blur:Function;
+		
+		/**
+		 * Animates the alpha of the current widget to a specified alpha value, in the number of frames specified.
+		 * @param to The alpha value (between 0 and 1) to animate the widget to
+		 * @param frames The number of frames over which to distribute the animation.
+		 */		
+		public function animateAlpha(to:Number, frames:Number=15):void {
+					
+			var startingAlpha:Number = Number(alpha.toFixed(2));
+			var difference:Number = Number((startingAlpha-to).toFixed(2));
+			
+			if (difference != 0) {
+				var increment:Number = difference/frames;
+				
+				var anim:Function = function(e:Event):void {
+					alpha -= increment;
+					if (alpha > 1) {
+						alpha = 1;
+					}
+					if (alpha < 0) {
+						alpha = 0;
+					}
+					var currentAlpha:Number = Number(alpha.toFixed(2));
+					if ((startingAlpha > to && currentAlpha <= to) || 
+						(startingAlpha < to && currentAlpha >= to)) {
+						removeEventListener(Event.ENTER_FRAME, anim);
+					}
+				};
+				addEventListener(Event.ENTER_FRAME, anim);
+			}
 		}
 		
 		/*public function inviteAllUsers():void {

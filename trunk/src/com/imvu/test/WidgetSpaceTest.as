@@ -25,6 +25,7 @@ package com.imvu.test {
 	import com.imvu.widget.WidgetSpace;
 	import com.imvu.events.*;
 	import flash.events.Event;
+	import flash.events.MouseEvent;
 	import com.imvu.test.MockExternalInterface;
 	import com.interactiveAlchemy.utils.Debug;
 	import com.imvu.events.WidgetEventData;
@@ -135,6 +136,25 @@ package com.imvu.test {
 			// Test events get dispatched to loaded widget
 			_instance.loadWidget("circle.swf");
 		}
-
+		
+		public function testFocusAndBlur():void {
+			var loadHandler:Function = function(e:Event):void { 
+				if (_instance.widgets["circle2.swf"] && _instance.widgets["circle.swf"]) {
+					var testWidget1:ClientWidget = _instance.widgets["circle.swf"];
+					testWidget1.dispatchEvent(new MouseEvent(MouseEvent.MOUSE_DOWN));
+					assertSame(testWidget1, _instance.activeWidget);
+					assertNotSame(testWidget2, _instance.activeWidget);
+					
+					var testWidget2:ClientWidget = _instance.widgets["circle2.swf"];
+					testWidget2.dispatchEvent(new MouseEvent(MouseEvent.MOUSE_DOWN));
+					assertSame(testWidget2, _instance.activeWidget);
+					assertNotSame(testWidget1, _instance.activeWidget);
+				}
+			};
+			
+			_instance.addEventListener(WidgetSpace.WIDGET_LOADED, addAsync(loadHandler, 2000));
+			_instance.loadWidget("circle.swf");
+			_instance.loadWidget("circle2.swf");	
+		}
 	}
 }

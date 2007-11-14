@@ -97,6 +97,8 @@ package com.imvu.widget
 		 */
 		public var dlgLoad:MovieClip;
 		
+		public var activeWidget:ClientWidget;
+		
 		public function WidgetSpace() {
 			Security.allowDomain("*");
 			
@@ -265,9 +267,24 @@ package com.imvu.widget
 			
 			var me:WidgetSpace = this;
 			var loadComplete:Function = function(e:Event):void {
+				var newWidget:ClientWidget = ClientWidget(ldr.content);
+				newWidget.alpha = 0.7;
+				
 				ldr.content["space"] = me;
 				ldr.content["url"] = path.split('?', 1)[0];
 				ldr.content["path"] = WidgetSpace.getWidgetPath(path);
+				
+				newWidget.focus = function(e:MouseEvent=null):void {
+					blurOthers(newWidget);
+					newWidget.animateAlpha(1);
+					activeWidget = newWidget;
+				};
+				
+				newWidget.blur = function(e:MouseEvent=null):void {
+					newWidget.animateAlpha(0.7);
+				};
+				
+				newWidget.addEventListener(MouseEvent.MOUSE_DOWN, newWidget.focus);
 				
 				var fullURL:String = ldr.content.loaderInfo.url;
 				Debug.write("Full widget URL: " + fullURL, this.avatarName);
@@ -290,6 +307,21 @@ package com.imvu.widget
 			ldr.load(url, context);
 		}
 
+		public function blurOthers(except:ClientWidget):void {
+			for each(var widget:ClientWidget in this.widgets) {
+				if (widget != except) {
+					widget.blur();
+				}
+			}
+		}
+
+		public function blurAll(e:MouseEvent=null):void {
+			for each(var widget:ClientWidget in this.widgets) {
+				widget.blur();
+			}
+			activeWidget = null;
+		}
+		
 		/**
 		 * Unloads a widget from the WidgetSpace.
 		 * 

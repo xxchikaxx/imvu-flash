@@ -29,7 +29,9 @@ package com.imvu.test {
 		public var callbacks:Object = {};
 		
 		public function call(name:String, args:*):void {
-			scope[name].call(scope, args);
+			if (scope[name]) {
+				scope[name].call(scope, args);
+			}
 		}
 		
 		public function addCallback(fn:String, callback:Function):void {
