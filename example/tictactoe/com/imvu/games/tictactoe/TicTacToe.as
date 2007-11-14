@@ -130,6 +130,10 @@ package com.imvu.games.tictactoe {
 			this.loadSkin();
 			this.markers = [marker0,marker1,marker2,marker3,marker4,marker5,marker6,marker7,marker8];
 			
+			this.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
+			this.addEventListener(MouseEvent.MOUSE_UP, mouseUp);
+			
+			this.addEventListener(WidgetSpace.WIDGET_UNLOADED, this.reset);
 			this.addEventListener("joinWidget", this.opponentJoined);
 			this.addEventListener("confirmJoin", this.confirmJoin);
 			this.addEventListener("opponentMove", this.opponentMove);
@@ -142,8 +146,16 @@ package com.imvu.games.tictactoe {
 			
 			this.reset();
 			this.txtStatus.text = "Waiting for opponent...";
+			this.focus();
 		}
 		
+		private function mouseDown(e:MouseEvent):void {
+			this.startDrag();
+		}
+		
+		private function mouseUp(e:MouseEvent):void {
+			this.stopDrag();
+		}
 		/**
 		 * Loads the skin for the background and grid portions of the game
 		 */
