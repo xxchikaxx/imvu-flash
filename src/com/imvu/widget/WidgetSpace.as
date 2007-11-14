@@ -176,6 +176,7 @@ package com.imvu.widget
 			this.ext.addCallback('flashCommand', this.receiveFlashCommand);
 			this.ext.addCallback('loadWidget', this.loadWidget);
 			this.ext.addCallback('unloadWidget', this.unloadWidget);
+			this.ext.addCallback('blurAll', this.blurAll);
 			
 			this.dispatchEvent(new Event(WidgetSpace.INTERFACE_READY));
 		}
