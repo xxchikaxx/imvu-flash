@@ -177,6 +177,7 @@ package com.imvu.widget
             this.ext.addCallback('loadWidget', this.loadWidget);
             this.ext.addCallback('unloadWidget', this.unloadWidget);
             this.ext.addCallback('blurAll', this.blurAll);
+            this.ext.addCallback('getWidgets', this.getWidgets);
             
             this.dispatchEvent(new Event(WidgetSpace.INTERFACE_READY));
         }
@@ -321,6 +322,14 @@ package com.imvu.widget
                 widget.blur();
             }
             activeWidget = null;
+        }
+
+        public function getWidgets():Array {
+            var result:Array = new Array();
+            for (var path:String in this.widgets) {
+                result.push(path);
+            }
+            return result;
         }
         
         /**
