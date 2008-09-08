@@ -37,12 +37,15 @@ package com.adobe.serialization.json
 {
 
 	import flash.utils.describeType;
+    import flash.utils.Dictionary;
 
 	public class JSONEncoder {
 	
 		/** The string that is going to represent the object we're encoding */
 		private var jsonString:String;
 		
+        private var visited:Dictionary;
+
 		/**
 		 * Creates a new JSONEncoder.
 		 *
@@ -52,8 +55,9 @@ package com.adobe.serialization.json
 		 * @tiptext
 		 */
 		public function JSONEncoder( value:* ) {
+            visited = new Dictionary();
 			jsonString = convertToString( value );
-		
+		    visited = null;
 		}
 		
 		/**
@@ -238,6 +242,9 @@ package com.adobe.serialization.json
 		 */
 		private function objectToString( o:Object ):String
 		{
+            if(o in visited) { return 'CYCLE'; }
+            visited[o] = 1;
+
 			// create a string to store the object's jsonstring value
 			var s:String = "";
 			
@@ -286,9 +293,13 @@ package com.adobe.serialization.json
 						// We've already added an item, so add the comma separator
 						s += ","
 					}
-					
-					s += escapeString( v.@name.toString() ) + ":" 
-							+ convertToString( o[ v.@name ] );
+                    s += escapeString( v.@name.toString() ) + ":";
+                    try {
+                        s += convertToString( o[ v.@name ] );
+                    } catch (e:Error) {
+                        s += 'ERROR';
+                    }
+
 				}
 				
 			}

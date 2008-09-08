@@ -2,7 +2,6 @@ package asunit.util {
 	import asunit.errors.UnimplementedFeatureError;
 	import flash.errors.IllegalOperationError;
 
-	[ExcludeClass]
 	public dynamic class Properties {
 
 		public function store(sharedObjectId:String):void {

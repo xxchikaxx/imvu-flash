@@ -33,7 +33,7 @@ package asunit.framework {
 		 * Returns a short description of the failure.
 		 */
 		public function toString():String {
-			return "";
+			return exceptionMessage();
 		}
 
 		public function exceptionMessage():String {
