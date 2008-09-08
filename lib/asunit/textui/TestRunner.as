@@ -14,6 +14,7 @@ package asunit.textui {
 	import flash.utils.setInterval;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+    import mx.core.LayoutContainer;
 
 	/**
 	 * A command line based tool to run tests.
@@ -28,7 +29,7 @@ package asunit.textui {
 	 * TestRunner prints a trace as the tests are executed followed by a
 	 * summary at the end.
 	 */
-	public class TestRunner extends Sprite {
+	public class TestRunner extends LayoutContainer {
 		public static const SUCCESS_EXIT:int   = 0;
 		public static const FAILURE_EXIT:int   = 1;
 		public static const EXCEPTION_EXIT:int = 2;
@@ -42,7 +43,6 @@ package asunit.textui {
 		}
 
 		private function configureListeners():void {
-			addEventListener(Event.ADDED_TO_STAGE, addedHandler);
 			addEventListener(Event.ADDED, addedHandler);
 		}
 

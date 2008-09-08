@@ -83,7 +83,7 @@ package asunit.framework {
 		/**
 		 * the name of the test case
 		 */
-		protected static const DEFAULT_TIMEOUT:int = 1000;
+		protected static const DEFAULT_TIMEOUT:int = 30000;
 		protected var fName:String;
 		protected var result:TestResult;
 		protected var testMethods:Array;
@@ -123,9 +123,6 @@ package asunit.framework {
 			try {
 				var manager:Class = getDefinitionByName("mx.managers.LayoutManager") as Class;
 				layoutManager = manager["getInstance"]();
-				if(!layoutManager.hasOwnProperty("resetAll")) {
-					throw new Error("TestCase :: mx.managers.LayoutManager missing resetAll method");
-				}
 			}
 			catch(e:Error) {
 				layoutManager = new Object();
@@ -303,6 +300,7 @@ package asunit.framework {
 			return function(args:*):* {
 				context.timeout.stop();
 				try {
+				    methodIsAsynchronous = false;
 					handler.apply(context, arguments);
 				}
 				catch(e:AssertionFailedError) {
@@ -311,8 +309,13 @@ package asunit.framework {
 				catch(ioe:IllegalOperationError) {
 					context.getResult().addError(context, ioe);
 				}
+                                catch(unknownError:Error) {
+                                    context.getResult().addError(context, unknownError);
+                                }
 				finally {
-					context.runTearDown();
+                                    if (!methodIsAsynchronous) {
+                                        context.runTearDown();
+                                    }
 				}
 			}
 		}
@@ -330,8 +333,19 @@ package asunit.framework {
 				return;
 			}
 			if(!runSingle) {
-				tearDown();
-				layoutManager.resetAll();
+				try {
+				    tearDown();
+				}
+				catch(e:AssertionFailedError) {
+					getResult().addFailure(this, e);
+				}
+				catch(ioe:IllegalOperationError) {
+					getResult().addError(this, ioe);
+				}
+                catch(unknownError:Error) {
+                    getResult().addError(this, unknownError);
+                }
+//				layoutManager.resetAll();
 			}
 			setTimeout(runBare, 5);
 		}
@@ -341,9 +355,6 @@ package asunit.framework {
 		}
 
 		protected function removeChild(child:DisplayObject):DisplayObject {
-			if(child == null) {
-				throw new IllegalOperationError("TestCase.removeChild must have non-null parameter child");
-			}
 			return getContext().removeChild(child);
 		}
 

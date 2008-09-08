@@ -14,41 +14,38 @@ package asunit.textui {
 	import flash.display.StageScaleMode;
 	import flash.events.*;
 	import flash.text.TextField;
-	import flash.text.TextFormat;
+	import flash.text.StyleSheet;
 	import flash.ui.Keyboard;
 	import flash.utils.setTimeout;
+	import flash.utils.getQualifiedClassName;
+    import mx.core.LayoutContainer;
 
-	public class ResultPrinter extends Sprite implements TestListener {
+	import mx.controls.TextArea;
+
+	public class ResultPrinter extends LayoutContainer implements TestListener {
 		private var fColumn:int = 0;
-		private var textArea:TextField;
+		private var textArea:TextArea;
 		private var gutter:uint = 0;
 		private var backgroundColor:uint = 0x333333;
 		private var bar:SuccessBar;
 		private var barHeight:Number = 3;
-		private var showTrace:Boolean;
+    	private var showTrace:Boolean;
+        private var curText:String = '';
 
 		public function ResultPrinter(showTrace:Boolean = false) {
 			this.showTrace = showTrace;
 			configureAssets();
-			println();
+			println("<font size='16' color='#000000'>");
 		}
 
 		private function configureAssets():void {
-			textArea = new TextField();
-			textArea.background = true;
-			textArea.backgroundColor = backgroundColor;
-			textArea.border = true;
-			textArea.wordWrap = true;
-			var format:TextFormat = new TextFormat();
-			format.font = "Verdana";
-			format.size = 10;
-			format.color = 0xFFFFFF;
-			textArea.defaultTextFormat = format;
-			addChild(textArea);
-			println("AsUnit " + Version.id() + " by Luke Bayes and Ali Mills");
 
-			bar = new SuccessBar();
-			addChild(bar);
+			textArea = new TextArea();
+            textArea.editable = false;
+			addChild(textArea);
+
+			//bar = new SuccessBar();
+			//addChild(bar);
 		}
 
 		public function setShowTrace(showTrace:Boolean):void {
@@ -56,28 +53,25 @@ package asunit.textui {
 		}
 		
 		public override function set width(w:Number):void {
-			textArea.x = gutter;
-			textArea.width = w - gutter*2;
-			bar.x = gutter;
-			bar.width = textArea.width;
+            textArea.width = w - 2*gutter;
 		}
 
 		public override function set height(h:Number):void {
-			textArea.height = h - ((gutter*2) + barHeight);
-			textArea.y = gutter;
-			bar.y = h - (gutter + barHeight);
-			bar.height = barHeight;
+            textArea.move(gutter,gutter);
+            textArea.height =  h - 2*gutter;
 		}
 
 		public function println(...args:Array):void {
-			textArea.appendText(args.toString() + "\n");
+            curText = curText + args.toString() + "\n";
+            textArea.htmlText = curText;
+            trace(args.toString()+"\n");
 		}
 
 		public function print(...args:Array):void {
-			textArea.appendText(args.toString());
+            curText = curText + args.toString();
+            textArea.htmlText = curText;
+            trace(args.toString());
 		}
-		/* API for use by textui.TestRunner
-		 */
 
 		public function printResult(result:TestResult, runTime:Number):void {
 			printHeader(runTime);
@@ -85,9 +79,9 @@ package asunit.textui {
 		    printFailures(result);
 		    printFooter(result);
 
-   		    bar.setSuccess(result.wasSuccessful());
+//   		    bar.setSuccess(result.wasSuccessful());
    		    if(showTrace) {
-				trace(textArea.text.split("\r").join("\n"));
+			    trace(textArea.text);
    		    }
 		}
 
@@ -112,10 +106,10 @@ package asunit.textui {
 				return;
 			}
 			if (count == 1) {
-				println("There was " + count + " " + type + ":");
+				println("<font color='#FF0000'><b>There was " + count + " " + type + ":</b></font>");
 			}
 			else {
-				println("There were " + count + " " + type + "s:");
+				println("<font color='#FF0000'><b>There were " + count + " " + type + "s:</b></font>");
 			}
 			var i:uint;
 			for each (var item:TestFailure in booBoos) {
@@ -130,37 +124,28 @@ package asunit.textui {
 		}
 
 		protected function printDefectHeader(booBoo:TestFailure, count:int):void {
-			// I feel like making this a println, then adding a line giving the throwable a chance to print something
-			// before we get to the stack trace.
-			var startIndex:uint = textArea.text.length;
-			println(count + ") " + booBoo.failedTest());
-			var endIndex:uint = textArea.text.length;
-
-			var format:TextFormat = textArea.getTextFormat();
-			format.bold = true;
-
-			// GROSS HACK because of bug in flash player - TextField isn't accepting formats...
-			setTimeout(onFormatTimeout, 1, format, startIndex, endIndex);
-		}
-
-		public function onFormatTimeout(format:TextFormat, startIndex:uint, endIndex:uint):void {
-			textArea.setTextFormat(format, startIndex, endIndex);
+			println("<br/><font color='#FF0000'><b>" + count + ") " + booBoo.failedTest() + "</b></font>");
 		}
 
 		protected function printDefectTrace(booBoo:TestFailure):void {
+			println('Type: ' + getQualifiedClassName(booBoo.thrownException()));
 			println(BaseTestRunner.getFilteredTrace(booBoo.thrownException().getStackTrace()));
 		}
 
 		protected function printFooter(result:TestResult):void {
 			println();
 			if (result.wasSuccessful()) {
+                print("<font color='#00AA00'><b>");
 				print("OK");
 				println (" (" + result.runCount() + " test" + (result.runCount() == 1 ? "": "s") + ")");
+                print("</b>");
 			} else {
+                print("<font color='#FF0000'><b>");
 				println("FAILURES!!!");
 				println("Tests run: " + result.runCount()+
 					         ",  Failures: "+result.failureCount()+
 					         ",  Errors: "+result.errorCount());
+                print("</b>");
 			}
 		    println();
 		}
@@ -177,14 +162,14 @@ package asunit.textui {
 		 * @see junit.framework.TestListener#addError(Test, Throwable)
 		 */
 		public function addError(test:Test, t:Error):void {
-			print("E");
+			print("<font color='#FF0000'><b>E</b></font>");
 		}
 
 		/**
 		 * @see junit.framework.TestListener#addFailure(Test, AssertionFailedError)
 		 */
 		public function addFailure(test:Test, t:AssertionFailedError):void {
-			print("F");
+			print("<font color='#FF0000'><b>F</b></font>");
 		}
 
 		/**
