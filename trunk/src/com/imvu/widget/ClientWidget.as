@@ -71,7 +71,10 @@ package com.imvu.widget {
 				init();
 			});
 		}
-		
+
+        public function initWidget():void {
+        }
+
 		/**
 		 * Initializes the widget and fires a remote event notifying other clients that the 
 		 * widget has been loaded by the current user. Also loads the configuration parameters,
@@ -81,10 +84,7 @@ package com.imvu.widget {
 			if (this.loaderInfo) {
 				this.config = this.loaderInfo.parameters;
 			}
-			if (this["initWidget"] && this["initWidget"] is Function) {
-				var fn:Function = this["initWidget"];
-				fn.call(this);
-			}
+            this.initWidget();
 			this.fireRemoteEvent(ClientWidget.JOIN_WIDGET);
 		}
 
