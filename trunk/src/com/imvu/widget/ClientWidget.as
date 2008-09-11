@@ -23,6 +23,8 @@ package com.imvu.widget {
 	import com.interactiveAlchemy.utils.Debug;
 	
 	import flash.display.MovieClip;
+    import flash.display.StageScaleMode;
+    import flash.display.StageAlign;
 	import flash.events.*;
 	import flash.external.ExternalInterface;
 	import flash.system.Security;
@@ -65,7 +67,13 @@ package com.imvu.widget {
 		public var widgetName:String = "Widget";
 		
 		public function ClientWidget() {
-			Security.allowDomain("*");
+            try {
+                Security.allowDomain("*");
+                stage.scaleMode = StageScaleMode.NO_SCALE;
+                stage.align = StageAlign.TOP_LEFT;
+                stage.frameRate = 30;
+            } catch(Error) {
+            }
 			
 			this.addEventListener(Event.ADDED_TO_STAGE, function(e:Event):void {
 				init();
