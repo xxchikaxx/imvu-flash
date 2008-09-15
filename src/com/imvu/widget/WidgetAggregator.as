@@ -128,20 +128,26 @@ package com.imvu.widget
             var me:WidgetAggregator = this;
             var loadComplete:Function = function(e:Event):void {
                 Logger.info("loadWidget(): loadComplete: %r", ldr.content);
-                var newWidget:ClientWidget = ClientWidget(ldr.content);
+
+                try {
+                    var newWidget:ClientWidget = ClientWidget(ldr.content);
                 
-                ldr.content["url"] = path.split('?', 1)[0];
-                ldr.content["path"] = WidgetAggregator.getWidgetPath(path);
+                    ldr.content["url"] = path.split('?', 1)[0];
+                    ldr.content["path"] = WidgetAggregator.getWidgetPath(path);
                 
-                newWidget.focus = function(e:MouseEvent=null):void {
-                    blurOthers(newWidget);
-                    activeWidget = newWidget;
-                };
+                    newWidget.focus = function(e:MouseEvent=null):void {
+                        blurOthers(newWidget);
+                        activeWidget = newWidget;
+                    };
                 
-                newWidget.blur = function(e:MouseEvent=null):void {
-                };
+                    newWidget.blur = function(e:MouseEvent=null):void {
+                    };
                 
-                newWidget.addEventListener(MouseEvent.MOUSE_DOWN, newWidget.focus);
+                    newWidget.addEventListener(MouseEvent.MOUSE_DOWN, newWidget.focus);
+                }
+                catch (e:Error) {
+                    Logger.info('Error loading widget as ClientWidget: ' + e.toString());
+                }
                 
                 var fullURL:String = ldr.content.loaderInfo.url;
                 Logger.info("Full widget URL: " + fullURL, this.avatarName);
