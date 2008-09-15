@@ -12,11 +12,11 @@ package com.imvu {
         public static function register(eventName:String, cb, fromSender:String) {
             var cbKey:String = callbacks.length.toString();
             callbacks[cbKey] = cb;
-            ExternalInterface.call("eventBusRegister", fromSender, eventName, cbKey);
+            if(ExternalInterface.available) { ExternalInterface.call("eventBusRegister", fromSender, eventName, cbKey); }
         }
 
         public static function fire(eventName:String, eventData:Object) {
-            ExternalInterface.call("eventBusFire", eventName, JSON.encode(eventData));
+            if(ExternalInterface.available) { ExternalInterface.call("eventBusFire", eventName, JSON.encode(eventData)); }
         }
 
         private static function incomingEvent(cbKey:String, eventName:String, infoStr:String) {
@@ -28,7 +28,7 @@ package com.imvu {
 
         private static var callbacks:Array = new Array();
         /*static init */ {
-            ExternalInterface.addCallback('incomingEvent', incomingEvent);
+            if(ExternalInterface.available) { ExternalInterface.addCallback('incomingEvent', incomingEvent); }
         }
     }
 }
