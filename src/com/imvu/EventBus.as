@@ -1,5 +1,5 @@
 package com.imvu {
-    import flash.external.ExternalInterface;
+    import com.imvu.EI;
     import com.adobe.serialization.json.JSON;
     import com.imvu.Logger;
 
@@ -12,11 +12,11 @@ package com.imvu {
         public static function register(eventName:String, cb, fromSender:String) {
             var cbKey:String = callbacks.length.toString();
             callbacks[cbKey] = cb;
-            if(ExternalInterface.available) { ExternalInterface.call("eventBusRegister", fromSender, eventName, cbKey); }
+            EI.call("eventBusRegister", fromSender, eventName, cbKey);
         }
 
         public static function fire(eventName:String, eventData:Object) {
-            if(ExternalInterface.available) { ExternalInterface.call("eventBusFire", eventName, JSON.encode(eventData)); }
+            EI.call("eventBusFire", eventName, JSON.encode(eventData));
         }
 
         private static function incomingEvent(cbKey:String, eventName:String, infoStr:String) {
@@ -28,7 +28,7 @@ package com.imvu {
 
         private static var callbacks:Array = new Array();
         /*static init */ {
-            if(ExternalInterface.available) { ExternalInterface.addCallback('incomingEvent', incomingEvent); }
+            EI.addCallback('incomingEvent', incomingEvent);
         }
     }
 }
