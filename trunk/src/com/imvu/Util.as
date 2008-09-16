@@ -93,6 +93,9 @@ package com.imvu
         }
 
         public static function deepCompare(a:Object, b:Object):Boolean {
+            if ((a === null) != (b === null)) {
+                return false;
+            }
             if (a is Number || a is String || a is Boolean) {
                 return a == b;
             } else if (a is Array) {
