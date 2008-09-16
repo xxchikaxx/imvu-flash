@@ -103,6 +103,16 @@ package com.imvu {
             assertTrue (cmp({1:2, 3:4}, {3:4, 1:2}));
             assertTrue (cmp([{1:2, 3:4}, {1:3, 2:5}], [{3:4, 1:2}, {2:5, 1:3}]));
             assertFalse(cmp({}, {1:2}));
+            
+            assertFalse(cmp(null, []));
+            assertFalse(cmp([], null));
+            assertFalse(cmp(null, [null]));
+            assertFalse(cmp([null], null));
+
+            assertFalse(cmp(null, 0));
+            assertFalse(cmp(0, null));
+            assertFalse(cmp(null, [0]));
+            assertFalse(cmp([0], null));
         }
 
         public function testArrayColumn() {
