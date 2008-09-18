@@ -4,8 +4,13 @@ package com.imvu
     import flash.events.*;
     import flash.external.ExternalInterface;
     import flash.net.*;
+    import flash.xml.*;
 
     public class Util {
+     
+        public static function htmlEscape(str:String):String {
+            return XML( new XMLNode( XMLNodeType.TEXT_NODE, str ) ).toXMLString();
+        }
 
         public static function min(a, b) {
             return a < b ? a : b;
