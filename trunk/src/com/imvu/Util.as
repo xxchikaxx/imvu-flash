@@ -7,7 +7,12 @@ package com.imvu
     import flash.xml.*;
 
     public class Util {
-     
+        public static function assert(cond:Boolean):void {
+            if (!cond) {
+                throw new Error("Assertion failure");
+            }
+        }
+
         public static function htmlEscape(str:String):String {
             return XML( new XMLNode( XMLNodeType.TEXT_NODE, str ) ).toXMLString();
         }
@@ -32,6 +37,14 @@ package com.imvu
                 }
             }
             return rslt;
+        }
+
+        public static function ifNull(o:*, d:*):* {
+            if (o != null) {
+                return o;
+            } else {
+                return d;
+            }
         }
 
         public static function arrayColumn(objs:Array, key:Object):Array {
@@ -59,7 +72,8 @@ package com.imvu
         }
 
         public static function login(avatarname:String, password:String, host:String, handler:Function):void {
-            var data:URLVariables = new URLVariables();            data.avatarname=avatarname;
+            var data:URLVariables = new URLVariables();            
+            data.avatarname=avatarname;
             data.password=password;
 
             var request:URLRequest = new URLRequest("http://" + host + "/catalog/login.php?action=process&sendto=/crossdomain.xml")
@@ -159,6 +173,16 @@ package com.imvu
             } else {
                 return _default;
             }
+        }
+
+        public static function unique(a:Array):Array {
+            var result:Array = [];
+            for each (var v in a) {
+                if (result.indexOf(v) == -1) {
+                    result.push(v);
+                }
+            }
+            return result;
         }
         
         public static function navigateToNamedUrl(externalInterface:Object, name:String, params:Object):void {
