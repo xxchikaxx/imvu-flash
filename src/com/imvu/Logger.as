@@ -31,7 +31,7 @@ package com.imvu {
                 var text:String = sprintf.apply(null, args);
                 var msg:String = sprintf("%-6s%s", levelLabels[level], text);
                 writeFunc_(msg);
-                trace(msg);
+                __imvutrace(msg);
                 Debug.write(msg);
             }
         }
@@ -43,4 +43,8 @@ package com.imvu {
         public static function debug(err:String, ...args):void { output.apply(null, [DEBUG, err].concat(args)); }
         public static function trace(err:String, ...args):void { output.apply(null, [TRACE, err].concat(args)); }
     }
+}
+
+function __imvutrace(...args) {
+    trace.apply(null, args);
 }
